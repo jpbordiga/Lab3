@@ -41,19 +41,19 @@ int main() {
 
 			if (command == 0) { //
 
-				//std::cout << "0\n";
+				std::cout << "0\n";
 				std::vector<uint32_t> freeListTemp = mA->get_free_list();
-				mA->FreePageFrames(count, freeListTemp);
+				//mA->FreePageFrames(count, freeListTemp);
 
 			} else if (command == 1) {
 
-				//std::cout << "1\n";
+				std::cout << "1\n";
 				std::vector<uint32_t> freeListTemp = mA->get_free_list();
-				mA->AllocatePageFrames(count, freeListTemp);
+				//mA->AllocatePageFrames(count, freeListTemp);
 
 			} else if (command == 2) {
-				//std::cout << "2\n";
-				mA->print_free_list();
+				std::cout << "2\n";
+				//mA->print_free_list();
 			}
 		
 		}

@@ -56,12 +56,15 @@ public:
 	uint32_t get_page_frames_free() const;
 
 
-
-
 	/**
-	* get_free_list - accesses the free list
+	* get_free_list - accesses the free list vector
 	*/
 	std::vector<uint32_t> get_free_list() const;
+
+	/**
+	* get_allocated_page_frames - accesses the allocated page frames vector
+	*/
+	std::vector<uint32_t> get_allocated_page_frames() const;
 
 	/**
 	* print_free_list - prints the free list
