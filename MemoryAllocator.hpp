@@ -2,6 +2,7 @@
 #define MEMORY_ALLOCATOR_HPP
 
 #include <vector>
+#include <fstream>
 
 class MemoryAllocator {
 
@@ -54,12 +55,29 @@ public:
 	*/
 	uint32_t get_page_frames_free() const;
 
+
+
+
+	/**
+	* get_free_list - accesses the free list
+	*/
+	std::vector<uint32_t> get_free_list() const;
+
+	/**
+	* print_free_list - prints the free list
+	*/
+	void print_free_list(); // params?
+
 private:
 
 	std::vector<uint8_t> memory;
+	std::vector<uint32_t> freeList; // page frames // vector or list type?
+	std::vector<uint32_t> allocatedPageFrames; // addresses of currently alloacted page frames
+	uint32_t page_frames_size = 0x10000; //
 	uint32_t page_frames_total;
 	uint32_t page_frames_free;
 	uint32_t free_list_head;
+	//std::ifstream iF;
 
 };
 
