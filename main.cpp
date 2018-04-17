@@ -18,7 +18,7 @@ int main() {
 
 	if (iF.fail()) {
 		std::cout << fileName << "\n";
-		throw std::runtime_error("ERROR: file not found: " + fileName);
+		throw std::runtime_error("ERROR: file not found: " + fileName + "\n");
 	} else {
 		
 		uint32_t totalPageFrames = 0;
@@ -41,19 +41,33 @@ int main() {
 
 			if (command == 0) { //
 
-				std::cout << "0\n";
 				std::vector<uint32_t> freeListTemp = mA->get_free_list();
-				//mA->FreePageFrames(count, freeListTemp);
+				bool result = mA->FreePageFrames(count, freeListTemp);
+
+				std::cout << "#0 " + count << "\n";
+
+				if (result == true) {
+					std::cout << "T " << mA->get_page_frames_free() << "\n";
+				} else {
+					std::cout << "F " << mA->get_page_frames_free() << "\n";
+				}
 
 			} else if (command == 1) {
 
-				std::cout << "1\n";
 				std::vector<uint32_t> freeListTemp = mA->get_free_list();
-				//mA->AllocatePageFrames(count, freeListTemp);
+				bool result = mA->AllocatePageFrames(count, freeListTemp);
+
+				std::cout << "#1 " + count << "\n";
+
+				if (result == true) {
+					std::cout << "T " << mA->get_page_frames_free() << "\n";
+				}
+				else {
+					std::cout << "F " << mA->get_page_frames_free() << "\n";
+				}
 
 			} else if (command == 2) {
-				std::cout << "2\n";
-				//mA->print_free_list();
+				mA->print_free_list();
 			}
 		
 		}

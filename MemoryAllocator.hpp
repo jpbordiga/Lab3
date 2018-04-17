@@ -62,6 +62,11 @@ public:
 	std::vector<uint32_t> get_free_list() const;
 
 	/**
+	* get_free_list - accesses the free list vector
+	*/
+	std::vector<uint8_t> get_memory() const;
+
+	/**
 	* get_allocated_page_frames - accesses the allocated page frames vector
 	*/
 	std::vector<uint32_t> get_allocated_page_frames() const;
