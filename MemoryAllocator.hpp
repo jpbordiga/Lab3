@@ -55,11 +55,18 @@ public:
 	*/
 	uint32_t get_page_frames_free() const;
 
+	void set_page_frames_free(uint32_t f) const;
+
+	uint32_t get_free_list_head() const;
+
+	void set_free_list_head(uint32_t f) const;
+
+	uint32_t get_page_frames_total() const;
 
 	/**
 	* get_free_list - accesses the free list vector
 	*/
-	std::vector<uint32_t> get_free_list() const;
+	//std::vector<uint32_t> get_free_list() const;
 
 	/**
 	* get_free_list - accesses the free list vector
@@ -69,7 +76,7 @@ public:
 	/**
 	* get_allocated_page_frames - accesses the allocated page frames vector
 	*/
-	std::vector<uint32_t> get_allocated_page_frames() const;
+	//std::vector<uint32_t> get_allocated_page_frames() const;
 
 	/**
 	* print_free_list - prints the free list
@@ -78,13 +85,15 @@ public:
 
 private:
 
+	// put on pf0
+
 	std::vector<uint8_t> memory;
-	std::vector<uint32_t> freeList; // page frames // vector or list type?
-	std::vector<uint32_t> allocatedPageFrames; // addresses of currently alloacted page frames
-	uint32_t page_frames_size = 0x10000; //
-	uint32_t page_frames_total;
-	uint32_t page_frames_free;
-	uint32_t free_list_head;
+	//std::vector<uint32_t> freeList; // page frames // vector or list type?
+	//std::vector<uint32_t> allocatedPageFrames; // addresses of currently alloacted page frames
+	const uint32_t page_frames_size = 0x10000; //
+	//uint32_t page_frames_total;
+	//uint32_t page_frames_free;
+	//uint32_t free_list_head;
 	//std::ifstream iF;
 
 };
